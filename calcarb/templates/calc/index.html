@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Carbono | CAPI</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'calcst/index.css' %}">
+</head>
+<body>
+    <div class="row container-fluid" id="header">
+        <div class="col text-center">
+            <img id="img-user" src="{% static 'calcst/Usuario.png' %}" alt="Usuário" class="img-fluid rounded-circle">
+            <img id="img-logo" src="{% static 'calcst/Capimatica.png' %}" alt="Capi" class="img-fluid">
+            <p id="title">CALCULADORA</p>
+        </div>
+    </div>
+
+    <div id="msg" class="container text-center my-5">
+        <p id="text">PEGADA DE CARBONO ATUAL: ??</p>
+    </div>
+
+    <div class="container text-center">
+        <button id="button" class="btn btn-primary btn-lg">CALCULE SUA PEGADA DE CARBONO</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
