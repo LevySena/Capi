@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f8fafc;
+    font-family: 'Lemonada', cursive; /* Aplica a fonte personalizada */
+}
+
+/* Cores personalizadas */
+.custom-teal { background-color: #BFE7E9; }
+.custom-teal-light { background-color: #d8f2f3; }
+.custom-teal-dark { background-color: #a6d9dc; }
+.button-teal { background-color: #5B999C; }
+
+/* Texto marrom */
+.brown-text { color: #8E5021; }
+
+/* Botão de voltar (seta estilizada) */
+.back-arrow {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 24px;
+    height: 24px;
+    border-left: 3px solid white;
+    border-bottom: 3px solid white;
+    cursor: pointer;
+}
+
+.back-arrow:hover {
+    opacity: 0.8; /* Efeito visual ao passar o mouse */
+}
+
+/* Ícone de perfil do usuário (canto superior direito) */
+.user-profile {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #5B999C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: white;
+    font-size: 20px;
+}
+
+.user-profile:hover {
+    transform: translateY(-50%) scale(1.05); /* Aumenta ligeiramente ao passar o mouse */
+}
+
+/* Tamanho de texto responsivo */
+.large-text {
+    font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .large-text {
+        font-size: 2rem;
+    }
+}

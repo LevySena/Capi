@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    {% load static %}
+<head>
+    <!-- Configurações básicas do documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retângulos Azuis-Claros</title>
+
+    <!-- Importação do Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonte personalizada "Lemonada" do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@300..700&display=swap" rel="stylesheet">
+
+    <!-- Ícones Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!--css local-->
+    <link rel="stylesheet" href="{% static 'homest/principal.css' %}">
+</head>
+<body>
+
+    <!-- TOPO COM LOGO CENTRALIZADA -->
+    <div class="w-full h-20 custom-teal relative flex items-center justify-center">
+        <!-- Botão de voltar (esquerda) -->
+        <button class="back-arrow"></button>
+
+        <!-- LOGO CENTRALIZADA -->
+        <img src="{% static 'homest/logo.png' %}" alt="Logo" class="h-20 object-contain mt-4">
+
+
+        <!-- Ícone de perfil (direita) -->
+        <div class="user-profile">
+            <!--<img src="{% static 'homest/icone-perfil.png' %}">-->
+        </div>
+    </div>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="container mx-auto px-4 py-12">
+        <!-- Dois cartões lado a lado em telas maiores -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            
+            <!-- Cartão 1: Pegada de Carbono -->
+            <div class="custom-teal-dark rounded-lg h-96 w-full shadow-lg transition-all duration-300 hover:shadow-xl flex flex-col items-center justify-between p-4">
+                <div class="text-center flex-grow flex items-center brown-text large-text">
+                    SAIBA COMO ESTÁ SUA PEGADA DE CARBONO
+                </div>
+                <div class="w-full flex justify-center pb-4">
+                    <button class="button-teal text-white px-6 py-2 rounded-lg">CALCULE</button>
+                </div>
+            </div>
+
+            <!-- Cartão 2: Empresas Sustentáveis -->
+            <div class="custom-teal rounded-lg h-96 w-full shadow-lg transition-all duration-300 hover:shadow-xl flex flex-col items-center justify-between p-4">
+                <div class="text-center flex-grow flex items-center brown-text large-text">
+                    VEJA QUAIS EMPRESAS ESTÃO SEGUINDO PLANOS SUSTENTÁVEIS
+                </div>
+                <div class="w-full flex justify-center pb-4">
+                    <button class="button-teal text-white px-6 py-2 rounded-lg">Ver Empresas</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
