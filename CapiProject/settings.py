@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'calcarb',
     'login',
+    'home',
+    'cadastro',
 ]
 
 MIDDLEWARE = [
