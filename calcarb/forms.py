@@ -29,9 +29,10 @@ def veic_validator(valor):
 
 
 class Perguntas(forms.Form):
-    precMes = forms.FloatField(attrs={'placeholder':'Responda aqui','class':'form-control'})
-    precRegion = forms.FloatField(attrs={'placeholder':'Responda aqui','class':'form-control'})
-    gasCoz = forms.IntegerField(attrs={'placeholder':'Responda aqui','class':'form-control'})
-    veiculoP = forms.ChoiceField(validators=veic_validator,choices=TRANSPORTE_VEIC,attrs={'class':'form-control'})
-    tCombC = forms.ChoiceField(validators=veic_validator,choices=TIPO_COMBUST_CAR,attrs={'class':'form-control'})
-    tCombM = forms.ChoiceField(validators=veic_validator,choices=TIPO_COMBUST_MOTO,attrs={'class':'form-control'})
+    precMes = forms.FloatField(widget=forms.NumberInput(attrs={'placeholder':'Responda em R$','class':'form-control'})) # x 0,0385 mensal
+    precRegion = forms.FloatField(widget=forms.NumberInput(attrs={'placeholder':'Responda em R$','class':'form-control'})) # preço cobrado por kwh
+    gasCoz = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder':'Responda aqui','class':'form-control'})) # x 2,9380 mensal
+    veiculoP = forms.ChoiceField(validators=[veic_validator],choices=TRANSPORTE_VEIC,widget=forms.Select(attrs={'class':'seletor form-control'})) #
+    tCombC = forms.ChoiceField(validators=[veic_validator],choices=TIPO_COMBUST_CAR,widget=forms.Select(attrs={'class':'form-control'})) #
+    tCombM = forms.ChoiceField(validators=[veic_validator],choices=TIPO_COMBUST_MOTO,widget=forms.Select(attrs={'class':'form-control'})) #
+    krodado = forms.FloatField(widget=forms.NumberInput(attrs={'placeholder':'Responda aqui','class':'form-control'}))

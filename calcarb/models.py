@@ -8,6 +8,7 @@ class PegadaCarb(models.Model):
     valorTotal = models.IntegerField(blank=True,null=True)
 
 class Mensagem(models.Model):
+    nome = models.CharField(max_length=20)
     cont = models.TextField()
     positiva = models.BooleanField(default=True)
     

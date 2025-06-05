@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Carbono | CAPI</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'calcst/calcQ.css' %}">
+</head>
+<body>
+    <div class="row container-fluid" id="header">
+        <img id="img-user" src="{% static 'calcst/Usuario.png' %}" alt="Usuário" class="img-fluid rounded-circle">
+        <div class="col text-center">
+            <img id="img-logo" src="{% static 'calcst/Capimatica.png' %}" alt="Capi" class="img-fluid">
+            <p id="title">CALCULADORA</p>
+        </div>
+    </div>
+
+    <div id="msg" class="container text-center my-5">
+        <p id="text">RESPONDA AS QUESTÕES:</p>
+    </div>
+
+    <div class="container">
+      <form action="." method="post" class="Forms">
+        {% csrf_token %}
+        <div class="row">
+          <!-- Primeira coluna -->
+          <div class="col-6 mx-auto flex-column justify-content-center">
+            <div class="boxQ w-100 p-3 mb-3">
+              <h2 class="w-100 p-3">Informe o valor mensal da sua conta de energia</h2>
+              {{forms.precMes}}
+              </div>
+              <div class="boxQ w-100 p-3 mb-3">
+              <h2 class="w-100 p-3">Informe o preço do kWh na sua região</h2>
+              {{forms.precRegion}}
+            </div>
+            <div class="boxQ w-100 p-3 mb-3">
+              <h2 class="w-100 p-3">Informe a quantidade de botijões de gas usados no mês</h2>
+              {{forms.gasCoz}}
+            </div>
+            <div class="boxQ w-100 p-3 mb-3">
+              <h2 class="w-100 p-3">Selecione seu tipo de veículo pessoal mais usado</h2>
+              {{forms.veiculoP}}
+            </div>
+              <div id="carCom" class="boxQ w-100 p-3 mb-3" style="display: none;">
+              <h2 class="w-100 p-3">Selecione o tipo de combustível do seu carro</h2>
+              {{forms.tCombC}}
+            </div>
+            <div id="motCom" class="boxQ w-100 p-3 mb-3" style="display: none;">
+              <h2 class="w-100 p-3">Selecione o tipo de combustível da sua moto</h2>
+              {{forms.tCombM}}
+            </div>
+            <div id="kmrd" class="boxQ w-100 p-3 mb-3">
+              <h2 class="w-100 p-3">Informe quantos quilômetros você anda por mês </h2>
+              {{forms.krodado}}
+            </div>
+        </div>
+        <button class="btn btn-dark w-100" type="submit">Calcular</button>
+      </form>
+      </div>
+    <script src="{% static 'calcst/calcQ.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
