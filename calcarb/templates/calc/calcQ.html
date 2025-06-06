@@ -23,7 +23,7 @@
     </div>
 
     <div class="container">
-      <form action="." method="post" class="Forms">
+      <form action="{% url 'CalQ' %}" method="POST" class="Forms">
         {% csrf_token %}
         <div class="row">
           <!-- Primeira coluna -->

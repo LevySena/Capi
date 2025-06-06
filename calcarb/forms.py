@@ -6,8 +6,8 @@ TRANSPORTE_VEIC = {
     "carro" : "Carro",
     "moto" : "Moto",
     "bike" : "Bike",
-    "bielec" : "Bicicleta elétrica",
-    "patinete" : "Patinete elétrico"
+    #"bielec" : "Bicicleta elétrica",
+    #"patinete" : "Patinete elétrico"
 }
 TIPO_COMBUST_CAR = {
     "-" : "Selecione o combustível",
@@ -15,7 +15,7 @@ TIPO_COMBUST_CAR = {
     "etanol" : "Etanol",
     "gasolina" : "Gasolina",
     "gnv" : "GNV",
-    "elec" : "Elétrico"
+    #"elec" : "Elétrico"
 }
 TIPO_COMBUST_MOTO = {
     "-" : "Selecione o combustível",
@@ -33,6 +33,6 @@ class Perguntas(forms.Form):
     precRegion = forms.FloatField(widget=forms.NumberInput(attrs={'placeholder':'Responda em R$','class':'form-control'})) # preço cobrado por kwh
     gasCoz = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder':'Responda aqui','class':'form-control'})) # x 2,9380 mensal
     veiculoP = forms.ChoiceField(validators=[veic_validator],choices=TRANSPORTE_VEIC,widget=forms.Select(attrs={'class':'seletor form-control'})) #
-    tCombC = forms.ChoiceField(validators=[veic_validator],choices=TIPO_COMBUST_CAR,widget=forms.Select(attrs={'class':'form-control'})) #
-    tCombM = forms.ChoiceField(validators=[veic_validator],choices=TIPO_COMBUST_MOTO,widget=forms.Select(attrs={'class':'form-control'})) #
+    tCombC = forms.ChoiceField(choices=TIPO_COMBUST_CAR,widget=forms.Select(attrs={'class':'form-control'}),required=False) #
+    tCombM = forms.ChoiceField(choices=TIPO_COMBUST_MOTO,widget=forms.Select(attrs={'class':'form-control'}),required=False) #
     krodado = forms.FloatField(widget=forms.NumberInput(attrs={'placeholder':'Responda aqui','class':'form-control'}))
