@@ -23,4 +23,5 @@ urlpatterns = [
     path("cadastro/",include("cadastro.urls")),
     path("login/",include("login.urls")),
     path("home/",include("home.urls")),
+    path("msg/",include("msg.urls"))
 ]

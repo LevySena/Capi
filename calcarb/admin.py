@@ -1,5 +1,5 @@
 from django.contrib import admin
-from calcarb.models import PegadaCarb, Mensagem
+from calcarb.models import PegadaCarb
 
 # Register your models here.
-admin.site.register([PegadaCarb,Mensagem])
+admin.site.register([PegadaCarb])

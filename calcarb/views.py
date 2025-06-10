@@ -39,6 +39,11 @@ def CalQ(request : HttpRequest):
                 else:
                     carbLKm = 0
                 carbTotal = carbLKm + carbGas + carbElec
+                newCarb = PegadaCarb()
+                newCarb.usuario = request.user
+                newCarb.valorTotal = carbTotal
+                newCarb.save()
+
                 print(f"Carbono total = {carbTotal}")
             except ZeroDivisionError:
                 formulario.add_error('precRegion','Digite um valor maior que zero')
