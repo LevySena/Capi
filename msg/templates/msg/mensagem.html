@@ -26,15 +26,17 @@
         </div>
     </nav>
     <div  class="quadro">
-        <button class="btn2">ADICIONAR 
-            MENSAGEM</button>
+        <a href="{% url 'cadMsg' %}"><button class="btn2">ADICIONAR 
+            MENSAGEM</button></a>
         <div class="list">
             <ul >
                 {% for m in msg %}
-                <li class="item">NOME: {{m.nome}}
+                <a href="{% url 'atumsg' m.id %}" style="text-decoration: none;">
+                <li class="item text-truncate ">NOME: {{m.nome}}
                 <div class="descricao">
                     {{m.cont}}
                 </div></li>
+                </a>
                 {% endfor %}
             </ul>
             

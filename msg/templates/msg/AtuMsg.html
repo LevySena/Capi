@@ -27,7 +27,7 @@
     </nav>
     <div  class="quadro">
         <div class="login">
-            <form action="." method="post" class="Forms">
+            <form method="post" class="Forms">
             {% csrf_token %}
             NOME
             <div class="input-group flex-nowrap">
@@ -44,6 +44,7 @@
         </div>
         <div class="quadro2">
            <button class="btn1" type="submit">SALVAR</button>
+           <a href="{% url 'delmsg' obj.id %}"><button class="btn1" type="button">DELETAR</button></a>
         </div>
         </form>
     </div>
