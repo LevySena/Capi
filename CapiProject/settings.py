@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'home',
     'cadastro',
     'msg',
+    'painel'
 ]
 
 MIDDLEWARE = [
