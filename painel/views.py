@@ -23,10 +23,11 @@ def AtuInfo(request : HttpRequest):
     if request.method == 'POST':
         if formulario.is_valid():
             obj,corObj=formulario.save()
+            return redirect(Painel)
     contexto={
-        "forms":formulario,
+        "form":formulario,
     }
-    return render(request,"painel/atualiza-usuario.html",context=contexto)
+    return render(request,"painel/atualiza-usuario2.html",context=contexto)
 
 def DelUser(request : HttpRequest):
     obj = User.objects.get(id=request.user.id)

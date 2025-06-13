@@ -24,4 +24,4 @@ def Cad(request: HttpRequest):
             perfil.save()
             #Redirecionar quando tela de login estiver pronta
             return redirect(Login_User)
-    return render(request,'cad/tela-cad.html',context=contexto)
+    return render(request,'cad/tela-cadastro2.html',context=contexto)

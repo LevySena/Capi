@@ -7,7 +7,7 @@ class PerfilForm(forms.Form):
     nome = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Nome do usuário','class':'form-control'}),label="Nome")
     email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder':'Email','class':'form-control'}),label="Email")
     cpf = forms.CharField(max_length=11,widget=forms.TextInput(attrs={'placeholder':'Cpf','class':'form-control'}),label="Cpf")
-    senhaN = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder':'Senha','class':'form-control'}),label="Senha")
+    senhaN = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder':'Senha','class':'form-control','id':'senha'}),label="Senha")
 
     def save(self):
         data = self.cleaned_data
