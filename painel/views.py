@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from login.views import Login_User
 from django.http import HttpRequest
 from django.contrib.auth.models import User
-from painel.forms import PerfilForm
+from painel.forms import *
 from cadastro.models import Cadastro_Pessoa
 
 # Create your views here.
@@ -27,5 +28,19 @@ def AtuInfo(request : HttpRequest):
     }
     return render(request,"painel/atualiza-usuario.html",context=contexto)
 
-def DelUser(request):
-    return render(request,"painel/deleta-usuario.html")
+def DelUser(request : HttpRequest):
+    obj = User.objects.get(id=request.user.id)
+    ini_data = {
+        "user_id":request.user.id,
+        "nome":obj.username,
+        "email":obj.email
+    }
+    formulario = showPerfil(ini_data)
+    if request.method == 'POST':
+        if formulario.is_valid():
+            formulario.save()
+            return redirect(Login_User)
+    contexto = {
+        "forms":formulario
+    }
+    return render(request,"painel/deleta-usuario.html",context=contexto)

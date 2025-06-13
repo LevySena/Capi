@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     {% load static %}
+    {% url 'painel' as painel %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,25 +17,25 @@
 
     <header class="w-100 h-20 d-flex align-items-center justify-content-between">
         <!--botão de voltar-->
-        <div style="width: 20%;">
-            <button class="header-button" onclick="window.location.href='painel-usuario.html'">
+            <button class="header-button" onclick="window.location.href={{painel}}">
                 <i class="bi bi-chevron-left"></i>
             </button>
-        </div>
+
         <!--imagem da capivara-->
-        <div class="d-flex justify-content-center align-items-center" style="width: 60%;">
+
             <img src="{% static 'painelst/logo.png' %}" alt="logo">
-        </div>
+
         <!--ícone de perfil-->
-        <div style="width: 20%;">
-            <img src="{% static 'painelst/Usuario.css' %}" alt="perfil">
-        </div>
+            <img src="{% static 'painelst/Usuario.png' %}" alt="perfil">
+
     </header>
 
     <main class="w-100 m-auto form-container">
         <form method="post" class="Forms">
             {% csrf_token %}
-            <i class="bi bi-person-circle d-flex justify-content-center"></i>
+            <div class="justify-content-center d-flex">
+                <img src="{% static 'msgst/Usuario.png' %}"  alt="perfil">
+            </div>
             <!--nome-->
             {% for field in forms %}
             <label class="form-label" for="nome">{{field.label}}</label>

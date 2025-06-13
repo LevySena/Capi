@@ -23,3 +23,15 @@ class PerfilForm(forms.Form):
             perfi.cpf = data['cpf']
             perfi.save()
         return usuario, perfi
+
+class showPerfil(forms.Form):
+    user_id = forms.IntegerField(widget=forms.HiddenInput(),required=False)
+    nome = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','readonly':'readonly'}))
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control','readonly':'readonly'}))
+
+    def save(self):
+        data = self.cleaned_data
+        user_id = data.get("user_id")
+        if user_id:
+            usuario = User.objects.get(id=user_id)
+            usuario.delete()

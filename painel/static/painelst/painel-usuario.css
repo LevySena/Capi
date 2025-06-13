@@ -11,15 +11,15 @@ html, body{
 }
 
 /*configurações principais*/
-body{
-    background-color: #f8fafc;
-}
-
 header{
     background-color: #BFE7E9;
     position: relative;
 }
 
+main{
+    border-radius: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.376);
+}
 main{
     max-width: 450px;
     padding: 1rem;
@@ -27,7 +27,21 @@ main{
     border-radius: 10px;
 }
 /*configurações secundárias*/
+.form-container{
+    max-width: 500px;
+    padding: 1rem;
+}
 
+/*configuração dos botões*/
+.header-button{
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 4px;
+    font-size: 2.3rem;
+    cursor: pointer;
+    color: #ffffff;
+}
 /*configuração do botão*/
 .botao-header{
     background: none;
@@ -72,7 +86,6 @@ img{
     position: relative;
     object-fit: contain;
     height: 5rem;
-    top: 9px;
 }
 /*classes do bootstrap*/
 .bi-person-circle{

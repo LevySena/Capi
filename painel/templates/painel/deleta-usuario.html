@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     {% load static %}
+    {% url 'painel' as painel %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,40 +13,40 @@
     
     <link rel="stylesheet" href="{% static 'painelst/deleta-usuario.css' %}">
 </head>
-<body class="d-flex flex-column align-items-center justify-content-between">
+<body class="d-flex flex-column align-items-center justify-content-between h-100">
 
-    <header class="w-100 h-20 d-flex align-items-center justify-content-between">
+  <header class="w-100 h-20 d-flex align-items-center justify-content-between">
         <!--botão de voltar-->
-        <div style="width: 20%;">
-            <button class="header-button" onclick="window.location.href='painel-usuario.html'">
+            <button class="header-button" onclick="window.location.href={{painel}}">
                 <i class="bi bi-chevron-left"></i>
             </button>
-        </div>
+
         <!--imagem da capivara-->
-        <div class="d-flex justify-content-center align-items-center" style="width: 60%;">
+
             <img src="{% static 'painelst/logo.png' %}" alt="logo">
-        </div>
+
         <!--ícone de perfil-->
-        <div style="width: 20%;">
-            <i class="bi bi-person-fill profile"></i>
-        </div>
+            <img src="{% static 'painelst/Usuario.png' %}" alt="perfil">
+
     </header>
 
     <main class="w-100 m-auto form-container">
         <form>
             <!--icone do usuário-->
-            <img src="{% static 'painelst/Usuario.css' %}" alt="perfil">
+            <div class="justify-content-center d-flex">
+                <img src="{% static 'msgst/Usuario.png' %}"  alt="perfil">
+            </div>
             <!--nome-->
             <label class="form-label" for="nome">Nome</label>
-            <input class="form-control mb-3" type="text" id="nome" placeholder="nome" required>
+            {{forms.nome}}
 
             <!--email-->
             <label class="form-label" for="email">Email</label>
-            <input class="form-control mb-3" type="email" id="email" placeholder="email" required>
+            {{forms.email}}
             
             
             <!--botão para deletar-->
-            <button class="btn btn-primary w-100" type="submit">Deletar conta</button>
+            <button class="btn btn-primary w-100 mt-4" type="submit">Deletar conta</button>
         </form>
     </main>
 </body>
