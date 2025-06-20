@@ -1,38 +1,63 @@
-body {
-    margin: 0;
-    padding: 0;
+/*configurações globais*/
+html, body{
+    height: 100%;
+}
+
+/*variáveis*/
+:root{
+    --button-primary-color: #5B999C;
+    --button-second-color: #5b8a8c;
+    --profile-color: #5B999C;
+    --square-color: #BFE7E9;
+    --h2-color: #8E5021;
+}
+
+/*configurações principais*/
+body{
     background-color: #f8fafc;
-    font-family: 'Lemonada', cursive; /* Aplica a fonte personalizada */
+    font-family: 'Lemonada', cursive;
 }
 
-/* Cores personalizadas */
-.custom-teal { background-color: #BFE7E9; }
-.custom-teal-light { background-color: #d8f2f3; }
-.custom-teal-dark { background-color: #a6d9dc; }
-.button-teal { background-color: #5B999C; }
+header{
+    background-color: #BFE7E9;
+    position: relative;
+}
 
-/* Texto marrom */
-.brown-text { color: #8E5021; }
+/*configurações secundárias*/
+.square1{
+    max-width: 500px;
+    height: 420px;
+    background-color: var(--square-color);
+    text-align: center;
+    margin-right: 15px;
+    border-radius: 10px;
+}
 
-/* Botão de voltar (seta estilizada) */
-.back-arrow {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%) rotate(45deg);
-    width: 24px;
-    height: 24px;
-    border-left: 3px solid white;
-    border-bottom: 3px solid white;
+.square2{
+    max-width: 500px;
+    height: 420px;
+    background-color: var(--square-color);
+    text-align: center;
+    margin-left: 15px;
+    border-radius: 10px;
+}
+
+/*configuração do botão*/
+.botao-header{
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 4px;
+    font-size: 2.3rem;
     cursor: pointer;
+    color: #ffffff;
+}
+.botao-header:hover{
+    opacity: 0.8;
 }
 
-.back-arrow:hover {
-    opacity: 0.8; /* Efeito visual ao passar o mouse */
-}
-
-/* Ícone de perfil do usuário (canto superior direito) */
-.user-profile {
+/*configuração do ícone de perfil do header*/
+.profile{
     position: absolute;
     right: 20px;
     top: 50%;
@@ -40,7 +65,7 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #5B999C;
+    background-color: var(--profile-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,20 +74,36 @@ body {
     border: 2px solid white;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     color: white;
-    font-size: 20px;
+    font-size: 26px;
 }
 
-.user-profile:hover {
-    transform: translateY(-50%) scale(1.05); /* Aumenta ligeiramente ao passar o mouse */
+.profile:hover{
+    transform: translateY(-50%) scale(1.05);
 }
 
-/* Tamanho de texto responsivo */
-.large-text {
-    font-size: 1.5rem;
+/*configuração da imagem*/
+img{
+    position: relative;
+    object-fit: contain;
+    height: 5rem;
+}
+/*tipografia*/
+h2{
+    height: 150px;
+    color: var(--h2-color);
 }
 
-@media (min-width: 768px) {
-    .large-text {
-        font-size: 2rem;
-    }
+/*classes do bootstrap*/
+
+.btn-primary {
+    --bs-btn-bg: var(--button-primary-color);
+    --bs-btn-color: white;
+    --bs-btn-border-color: var(--button-primary-color);
+    --bs-btn-hover-color: white;
+    --bs-btn-hover-bg: var(--button-primary-color);
+    --bs-btn-hover-border-color: #33241F;
+    --bs-btn-active-color: white;
+    --bs-btn-active-bg: var(--button-second-color);
+    --bs-btn-active-border-color: var(--button-second-color);
+    --bs-btn-font-size: 1.2rem;
 }

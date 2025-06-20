@@ -20,6 +20,7 @@ def Cad(request: HttpRequest):
             novo.save()
             perfil = Cadastro_Pessoa()
             perfil.cpf = formulario.cleaned_data['cpf']
+            perfil.email = formulario.cleaned_data['email']
             perfil.user = novo
             perfil.save()
             #Redirecionar quando tela de login estiver pronta

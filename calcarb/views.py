@@ -1,14 +1,20 @@
 from django.shortcuts import render,redirect
 from django.http import HttpRequest
+from msg.models import Mensagem
 from calcarb.forms import Perguntas
 from calcarb.models import PegadaCarb
+import random
 
 # Create your views here.
 
 def CalP(request : HttpRequest):
-    if request.method == 'POST':
-        print('Aqui')
-    return render(request,"calc/calcP.html")
+    obj = PegadaCarb.objects.filter(usuario = request.user)
+    
+    contexto={
+        'obj':obj.last()
+    }
+
+    return render(request,"calc/calcP.html",context=contexto)
 
 def CalQ(request : HttpRequest):
     formulario = Perguntas()
@@ -52,3 +58,25 @@ def CalQ(request : HttpRequest):
     "forms" : formulario
     }
     return render(request,"calc/calcQ.html",context=contexto)
+
+def CalM(request : HttpRequest):
+    obj = PegadaCarb.objects.filter(usuario = request.user)
+    listaP=list(obj)
+    if len(listaP) == 1:
+        if listaP[1].valorTotal < 150:
+            msg = "Seus hábitos e escolhas já contribuem significativamente para um futuro mais sustentável. Isso demonstra um compromisso notável com a redução do impacto ambiental. Continue inspirando e mostrando que é possível viver de forma mais consciente. Pequenas ações diárias, como as que você já adota, fazem uma grande diferença para o planeta."
+        else: msg = "Este resultado é um convite para refletir sobre o impacto das nossas atividades diárias no meio ambiente. Há diversas maneiras de reduzir essa pegada, começando por mudanças simples no consumo de energia, nos hábitos de transporte ou nas escolhas alimentares. Lembre-se, pequenas alterações podem gerar grandes resultados. Estamos aqui para ajudar você a encontrar caminhos para um estilo de vida mais sustentável."
+    else:
+        df=listaP[-2].valorTotal - listaP[-1].valorTotal
+        if df > 0:
+            msg = list(Mensagem.objects.filter(positiva=False))
+            msg = random.choice(msg)
+        else:
+            msg = list(Mensagem.objects.filter(positiva=True))
+            msg = random.choice(msg)
+    contexto={
+        'msg':msg,
+        'obj': obj.last()
+    }
+            
+    return render(request,"calc/calcM.html",context=contexto)

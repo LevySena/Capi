@@ -8,6 +8,6 @@ class Cadastro_Form(forms.ModelForm):
         fields = ['username','email','password']
         widgets = {
             'username' : forms.TextInput(attrs={'placeholder':'Nome do usuário','class':'form-control'}),
-            'email' : forms.EmailInput(attrs={'placeholder':'Email','class':'form-control'}),
+            'email' : forms.EmailInput(attrs={'placeholder':'Email','class':'form-control',"required": True}),
             'password' : forms.PasswordInput(attrs={'placeholder':'Senha','class':'form-control','id':'senha'}),
         }

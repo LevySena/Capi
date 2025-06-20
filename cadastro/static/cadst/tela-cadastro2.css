@@ -10,6 +10,13 @@ body{
 /*configurações principais*/
 header{
     background-color: #BFE7E9;
+    position: relative;
+}
+
+img{
+    position: relative;
+    object-fit: contain;
+    height: 5rem;
 }
 
 main{
@@ -38,11 +45,12 @@ main{
 .botao:hover{
     opacity: 0.8;
 }
-
-/*configuração da imagem*/
-img{
-    position: relative;
-    object-fit: contain;
-    height: 5rem;
-    top: 9px;
+.botao-header{
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 4px;
+    font-size: 2.3rem;
+    cursor: pointer;
+    color: #ffffff;
 }

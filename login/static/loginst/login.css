@@ -11,9 +11,15 @@
     background-color: #BFE7E9;
     }
 
+header{
+    background-color: #BFE7E9;
+    position: relative;
+}
+
 img{
-    width: 8vh;
-    height: auto;
+    position: relative;
+    object-fit: contain;
+    height: 5rem;
 }
 .quadro{
     margin-top: 5%;

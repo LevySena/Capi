@@ -11,6 +11,11 @@ html, body{
 }
 
 /*configurações principais*/
+body{
+    background-color: #f8fafc;
+    font-family: 'Lemonada', cursive;
+}
+
 header{
     background-color: #BFE7E9;
     position: relative;
