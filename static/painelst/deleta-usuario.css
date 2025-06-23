@@ -1,0 +1,84 @@
+/*configurações globais*/
+html, body{
+    height: 100%;
+}
+
+/*variáveis*/
+:root{
+    --button-primary-color: #5B999C;
+    --button-second-color: #5b8a8c;
+    --profile-color: #5B999C;
+}
+
+/*configurações principais*/
+body{
+    background-color: #f8fafc;
+}
+
+header{
+    background-color: #BFE7E9;
+    position: relative;
+}
+
+main{
+    border-radius: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.376);
+}
+
+/*configurações secundárias*/
+
+/*configuração do cadastro*/
+.form-container{
+    max-width: 500px;
+    padding: 1rem;
+}
+
+/*configuração dos botões*/
+.botao-header{
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 4px;
+    font-size: 2.3rem;
+    cursor: pointer;
+    color: #ffffff;
+}
+.botao-header:hover{
+    opacity: 0.8;
+}
+.logo{
+    padding-left: 23.3px;
+}
+.profile:hover{
+    transform: translateY(-50%) scale(1.05);
+}
+
+/*configuração da imagem*/
+img{
+    position: relative;
+    object-fit: contain;
+    height: 5rem;
+}
+
+/*classes do bootstrap*/
+.bi-person-circle{
+    font-size: 3.5rem;
+}
+
+.form-control:focus{
+    box-shadow: 0px 0px 0px 0.5px #33241F inset;
+    border-color: white;
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--button-primary-color);
+    --bs-btn-color: white;
+    --bs-btn-border-color: var(--button-primary-color);
+    --bs-btn-hover-color: white;
+    --bs-btn-hover-bg: var(--button-primary-color);
+    --bs-btn-hover-border-color: #33241F;
+    --bs-btn-active-color: white;
+    --bs-btn-active-bg: var(--button-second-color);
+    --bs-btn-active-border-color: var(--button-second-color);
+    --bs-btn-font-weight: bolder;
+}

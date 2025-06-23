@@ -26,5 +26,6 @@ urlpatterns = [
     path("login/",include("login.urls")),
     path("home/",include("home.urls")),
     path("msg/",include("msg.urls")),
-    path("painel/",include("painel.urls"))
+    path("painel/",include("painel.urls")),
+    path("empresas/",include("empresas.urls")),
 ]
