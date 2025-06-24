@@ -7,7 +7,7 @@ def path_foto(instace, filename):
 # Create your models here.
 class Cadastro_Pessoa(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,related_name='perfil')
-    cpf = models.CharField(max_length=11)
+    cpf = models.CharField(max_length=14)
     email = models.EmailField(max_length=100,blank=False)
     foto = models.ImageField('Foto do Perfil',
                              null=True,

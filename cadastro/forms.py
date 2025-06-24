@@ -1,8 +1,15 @@
 from django import forms
 from django.contrib.auth.models import User
+from cadastro.utils.validador import formatar_cpf,validador
+from django.core.exceptions import ValidationError
+
+def custom_validator(valor):
+    if not validador(valor):
+        print("Inválido")
+        raise ValidationError("CPF inválido!")
 
 class Cadastro_Form(forms.ModelForm):
-    cpf = forms.CharField(max_length=11,widget=forms.TextInput(attrs={'placeholder':'Cpf','class':'form-control'}))
+    cpf = forms.CharField(max_length=14,widget=forms.TextInput(attrs={'placeholder':'Cpf, formato: 999.999.999-99','class':'form-control'}),required=True,validators=[custom_validator])
     class Meta:
         model = User
         fields = ['username','email','password']

@@ -37,7 +37,6 @@
         <!--formulário do cadastro-->
         <form action="." method="post" class="Forms">
             {% csrf_token %}
-            <!--nome-->
             <label class="form-label" for="nome">Nome</label>
             {{form.username}}
 
@@ -48,6 +47,9 @@
             <!--CPF-->
             <label class="form-label" for="cpf">CPF</label>
             {{form.cpf}}
+            <div style="color: red;">
+            {{form.cpf.errors}}
+            </div>
 
             <!--senha-->
             <label class="form-label" for="senha">Senha</label>
