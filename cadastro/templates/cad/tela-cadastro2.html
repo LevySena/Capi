@@ -19,9 +19,11 @@
     <header class="w-100 h-20 d-flex align-items-center justify-content-between">
         <!--botão de voltar-->
         <div style="width: 20%;">
+            <a href={% url 'login' %}>
             <button class="botao-header">
             <i class="bi bi-chevron-left"></i>
             </button>
+            </a>
         </div>
         <!--imagem da capivara-->
         <div class="d-flex justify-content-center align-items-center" style="width: 60%;">
@@ -35,7 +37,6 @@
         <!--formulário do cadastro-->
         <form action="." method="post" class="Forms">
             {% csrf_token %}
-            <!--nome-->
             <label class="form-label" for="nome">Nome</label>
             {{form.username}}
 
@@ -46,6 +47,9 @@
             <!--CPF-->
             <label class="form-label" for="cpf">CPF</label>
             {{form.cpf}}
+            <div style="color: red;">
+            {{form.cpf.errors}}
+            </div>
 
             <!--senha-->
             <label class="form-label" for="senha">Senha</label>

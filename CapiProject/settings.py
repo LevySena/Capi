@@ -37,12 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'import_export',
     'calcarb',
     'login',
     'home',
     'cadastro',
     'msg',
-    'painel'
+    'painel',
+    'empresas'
 ]
 
 MIDDLEWARE = [

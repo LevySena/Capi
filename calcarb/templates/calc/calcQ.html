@@ -5,62 +5,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Carbono | CAPI</title>
-
+  <!--ícones bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!-- Fonte personalizada "Lemonada" do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@300..700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'calcst/calcQ.css' %}">
 </head>
-<body>
-    <div class="row container-fluid" id="header">
-        <img id="img-user" src="{% static 'calcst/Usuario.png' %}" alt="Usuário" class="img-fluid rounded-circle">
-        <div class="col text-center">
-            <img id="img-logo" src="{% static 'calcst/Capimatica.png' %}" alt="Capi" class="img-fluid">
-            <p id="title">CALCULADORA</p>
+<body class="d-flex flex-column align-items-center justify-content-between">
+
+      <header class="w-100 h-20 d-flex align-items-center justify-content-between">
+        <!--botão de voltar-->
+         <div style="width: 20%;">
+          <a href={% url 'Calp' %}>
+            <button class="botao-header">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+          </a>
         </div>
-    </div>
+        <!--imagem da capivara-->
+        <div class="d-flex justify-content-center align-items-center" style="width: 60%;">
+            <img src="{% static 'calcst/calc.png' %}" alt="logo">
+        </div>
+        <!--ícone de perfil-->
+        <div style="width: 20%;">
+        <a href={% url 'painel' %}>
+                <img class="profile" src="{% static 'calcst/Usuario.png' %}" alt="ícone">
+            </a>
+        </div>
+    </header>
 
-    <div id="msg" class="container text-center my-5">
-        <p id="text">RESPONDA AS QUESTÕES:</p>
-    </div>
+    <div class="m-auto d-flex flex-column justify-content-between w-75 h-75">
+      <div class="square1">
+          <p class="m-auto p-2">RESPONDA AS QUESTÕES:</p>
+      </div>
 
-    <div class="container">
+    <div class="container m-auto">
       <form action="{% url 'CalQ' %}" method="POST" class="Forms">
         {% csrf_token %}
-        <div class="row">
+        <div class="row mt-3">
           <!-- Primeira coluna -->
           <div class="col-6 mx-auto flex-column justify-content-center">
             <div class="boxQ w-100 p-3 mb-3">
-              <h2 class="w-100 p-3">Informe o valor mensal da sua conta de energia</h2>
+              <h4 class="w-100 p-3">Informe o valor mensal da sua conta de energia</h4>
               {{forms.precMes}}
               </div>
               <div class="boxQ w-100 p-3 mb-3">
-              <h2 class="w-100 p-3">Informe o preço do kWh na sua região</h2>
+              <h4 class="w-100 p-3">Informe o preço do kWh na sua região</h4>
               {{forms.precRegion.errors}}
               {{forms.precRegion}}
             </div>
             <div class="boxQ w-100 p-3 mb-3">
-              <h2 class="w-100 p-3">Informe a quantidade de botijões de gas usados no mês</h2>
+              <h4 class="w-100 p-3">Informe a quantidade de botijões de gas usados no mês</h4>
               {{forms.gasCoz}}
             </div>
             <div class="boxQ w-100 p-3 mb-3">
-              <h2 class="w-100 p-3">Selecione seu tipo de veículo pessoal mais usado</h2>
+              <h4 class="w-100 p-3">Selecione seu tipo de veículo pessoal mais usado</h4>
               {{forms.veiculoP}}
             </div>
               <div id="carCom" class="boxQ w-100 p-3 mb-3" style="display: none;">
-              <h2 class="w-100 p-3">Selecione o tipo de combustível do seu carro</h2>
+              <h4 class="w-100 p-3">Selecione o tipo de combustível do seu carro</h4>
               {{forms.tCombC}}
             </div>
             <div id="motCom" class="boxQ w-100 p-3 mb-3" style="display: none;">
-              <h2 class="w-100 p-3">Selecione o tipo de combustível da sua moto</h2>
+              <h4 class="w-100 p-3">Selecione o tipo de combustível da sua moto</h4>
               {{forms.tCombM}}
             </div>
             <div id="kmrd" class="boxQ w-100 p-3 mb-3">
-              <h2 class="w-100 p-3">Informe quantos quilômetros você anda por mês </h2>
+              <h4 class="w-100 p-3">Informe quantos quilômetros você anda por mês </h4>
               {{forms.krodado}}
             </div>
         </div>
-        <button class="btn btn-dark w-100" type="submit">Calcular</button>
+        <a href={% url 'CalM' %} class="w-100"><button class="btn btn-dark w-100" type="submit">Calcular</button></a>
       </form>
       </div>
+    </div>
     <script src="{% static 'calcst/calcQ.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

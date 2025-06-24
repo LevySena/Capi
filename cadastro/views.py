@@ -5,12 +5,10 @@ from cadastro.forms import Cadastro_Form
 from django.contrib.auth.hashers import make_password
 from login.views import Login_User
 
+
 # Create your views here.
 def Cad(request: HttpRequest):
     formulario = Cadastro_Form()
-    contexto={
-        'form' : formulario
-    }
     if request.method == 'POST':
         formulario = Cadastro_Form(request.POST)
         if formulario.is_valid():
@@ -20,8 +18,12 @@ def Cad(request: HttpRequest):
             novo.save()
             perfil = Cadastro_Pessoa()
             perfil.cpf = formulario.cleaned_data['cpf']
+            perfil.email = formulario.cleaned_data['email']
             perfil.user = novo
             perfil.save()
             #Redirecionar quando tela de login estiver pronta
             return redirect(Login_User)
+    contexto={
+        'form' : formulario
+    }
     return render(request,'cad/tela-cadastro2.html',context=contexto)

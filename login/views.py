@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpRequest
 from django.contrib.auth import authenticate, login, logout
+from home.views import HomeP
 from login.forms import LoginUser
 
 # Create your views here.
@@ -14,8 +15,8 @@ def Login_User(request:HttpRequest):
             user = authenticate(request, username=usuario, password=senha)
             if user is not None:
                 login(request,user)
-                print("Logado com sucesso")
                 #Adicionar redirecionamento quando estiver pronto
+                return redirect(HomeP)
             else:
                 formulario.add_error('username','Usuário ou Senha incorretas')
     contexto = {
