@@ -9,7 +9,7 @@ def custom_validator(valor):
         raise ValidationError("CPF inválido!")
 
 class Cadastro_Form(forms.ModelForm):
-    cpf = forms.CharField(max_length=14,widget=forms.TextInput(attrs={'placeholder':'Cpf, formato: 999.999.999-99','class':'form-control'}),required=True,validators=[custom_validator])
+    cpf = forms.CharField(max_length=14,widget=forms.TextInput(attrs={'placeholder':'Cpf','class':'form-control'}),required=True,validators=[custom_validator])
     class Meta:
         model = User
         fields = ['username','email','password']
