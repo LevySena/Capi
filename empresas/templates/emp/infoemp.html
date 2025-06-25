@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações da empresa</title>
+
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--ícones do bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!--css local-->
+    <link rel="stylesheet" href="{% static 'empst/info-empresa.css' %}">
+</head>
+<body class="d-flex flex-column align-items-center justify-content-between">
+   <!--topo-->
+    <header class="w-100 h-20 d-flex align-items-center justify-content-between">
+        <!--botão de voltar-->
+        <div style="width: 20%;">
+            <a href={% url 'listaE' %} style="text-decoration: none;">
+                <button class="botao-header">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+            </a>
+        </div>
+        <!--imagem da capivara-->
+        <div class="d-flex justify-content-center align-items-center" style="width: 60%;">
+            <img src="{% static 'homest/logo.png' %}" alt="logo">
+        </div>
+        <!--ícone de perfil-->
+        <div style="width: 20%;">
+        <a href={% url 'painel' %}>
+                <img class="profile" src="{% static 'homest/icone-perfil.png' %}" alt="ícone">
+            </a>
+        </div>
+    </header>
+
+    <main class="w-100 m-auto container d-flex flex-column align-items-center">
+        <!--Informações da empresa-->
+        <section class="d-flex flex-column align-items-center mb-3 quadro">
+            <h3 class="mb-5">{{obj.company_name}}</h3>
+            <!--descrição-->
+            <p style="text-align: justify;">
+                <div>Localização: {{obj.location}}</div>
+                <div>Setor: {{obj.sector}}</div>
+            </p>
+            
+        </section>
+        <!--Opção de favoritar empresa-->
+        <div class="align-items-center">
+            <label class="mt-3" for="favorito">
+                <input type="checkbox" id="favorito"
+                {% if favoritada %} checked {% endif %}
+                data-empresa-id="{{obj.id}}">
+                Marcar como favorito 
+            </label> 
+            <div id="status-message"></div>
+        </div>
+    </main>
+    <script src="{% static 'empst/tog.js' %}"></script>
+</body>
+</html>
