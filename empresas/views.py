@@ -1,16 +1,24 @@
 from django.shortcuts import render,redirect
+from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest,JsonResponse
 from empresas.models import Empresas
 import json
 # Create your views here.
 
+@login_required(login_url='login')
 def EmpLista(request : HttpRequest):
     EmpAll = Empresas.objects.all()
+    favoritas = request.GET.get('favoritas_apenas', 'false').lower() == 'true'
+    print(request.user.Emp_fav.all())
+    if favoritas:
+        EmpAll = request.user.Emp_fav.all()
     contexto = {
-        "emp" : EmpAll
+        "emp" : EmpAll,
+        "favoritas_apenas": favoritas
     }
     return render(request,"emp/Empre.html",context=contexto)
 
+@login_required(login_url='login')
 def EmpInfo(request :HttpRequest,eid):
     if not Empresas.objects.filter(id=eid):
         return redirect(EmpLista)
@@ -20,12 +28,13 @@ def EmpInfo(request :HttpRequest,eid):
     }
     return render(request,"emp/infoemp.html",context=contexto)
 
+@login_required(login_url='login')
 def favoritar(request : HttpRequest):
-    print(request.body)
     try:
         user = request.user
         valor = json.loads(request.body)
         emp_id=valor.get('empresa_id')
+        print(emp_id)
         favoritada = valor.get('favoritada')
         emp = Empresas.objects.get(id=emp_id)
         if favoritada:

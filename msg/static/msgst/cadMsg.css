@@ -147,6 +147,7 @@ h2{
     flex-direction: row;
     justify-content:center;
     align-items: start;
+    overflow:auto;
 }
 
 .item{

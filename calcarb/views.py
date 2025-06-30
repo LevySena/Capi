@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest
 from msg.models import Mensagem
 from calcarb.forms import Perguntas
@@ -7,6 +8,7 @@ import random
 
 # Create your views here.
 
+@login_required(login_url='login')
 def CalP(request : HttpRequest):
     obj = PegadaCarb.objects.filter(usuario = request.user)
     
@@ -16,6 +18,7 @@ def CalP(request : HttpRequest):
 
     return render(request,"calc/calcP.html",context=contexto)
 
+@login_required(login_url='login')
 def CalQ(request : HttpRequest):
     formulario = Perguntas()
     if request.method == 'POST':
@@ -59,6 +62,7 @@ def CalQ(request : HttpRequest):
     }
     return render(request,"calc/calcQ.html",context=contexto)
 
+@login_required(login_url='login')
 def CalM(request : HttpRequest):
     obj = PegadaCarb.objects.filter(usuario = request.user)
     listaP=list(obj)

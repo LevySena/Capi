@@ -37,10 +37,15 @@
     </header>
     
     <div  class="quadro m-auto">
-        <a href="{% url 'cadMsg' %}"><button class="btn2">ADICIONAR 
-            EMPRESA</button></a>
-        <div class="list">
-            <ul >
+       <div class="d-flex flex-column align-items-center">
+           <a href="{% url 'cadMsg' %}"><button class="btn2">ADICIONAR 
+               EMPRESA</button></a>
+               <label for="show-favorites"><input type="checkbox" id="favoritas" class="filter-checkbox"
+                   {% if favoritas_apenas %}checked{% endif %}> Mostrar apenas favoritas</label>
+        </div> 
+            
+        <div class="list w-75">
+            <div class="w-100" >
                 {% for e in emp %}
                 <a href="{% url 'infoE' e.id %}" style="text-decoration: none;">
                 <li class="item d-flex text-truncate ">
@@ -54,10 +59,11 @@
                 </div></li>
                 </a>
                 {% endfor %}
-            </ul>
+            </div>
         </div>
     </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="{% static 'empst/fav_filter.js' %}"></script>
 </body>
 </html>
