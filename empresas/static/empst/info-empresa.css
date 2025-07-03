@@ -109,13 +109,11 @@ h2{
 }
 
 .quadro{
-    margin-top: 5%;
-    height: 50VH;
+    background-color: #5B999C;
+    padding: 30px;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    height: 100%;
+    
 }
 
 .quadro2{

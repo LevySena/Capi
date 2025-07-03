@@ -2,8 +2,10 @@ from django.shortcuts import render,redirect
 from django.http import HttpRequest
 from msg.models import Mensagem
 from msg.forms import MsgForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+@login_required(login_url='login')
 def MsgLista(request : HttpRequest):
     Allmsg = Mensagem.objects.all()
     contexto = {
@@ -11,6 +13,7 @@ def MsgLista(request : HttpRequest):
     }
     return render(request, "msg/mensagem.html",context=contexto)
 
+@login_required(login_url='login')
 def MsgCad(request : HttpRequest):
     formulario = MsgForm()
     if request.method == 'POST':
@@ -24,6 +27,7 @@ def MsgCad(request : HttpRequest):
     }
     return render(request,"msg/cadMsg.html",context=contexto)
 
+@login_required(login_url='login')
 def AtualizarMsg(request:HttpRequest,pid):
     verify = Mensagem.objects.filter(id=pid)
     if not verify:
@@ -41,6 +45,7 @@ def AtualizarMsg(request:HttpRequest,pid):
     }
     return render(request,"msg/AtuMsg.html",context=contexto)
 
+@login_required(login_url='login')
 def ApagarMsg(request:HttpRequest,pid):
     msg = Mensagem.objects.get(id=pid)
     msg.delete()
