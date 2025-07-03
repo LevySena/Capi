@@ -3,6 +3,7 @@ from login.views import Login_User
 from django.http import HttpRequest
 from django.contrib.auth.models import User
 from painel.forms import *
+from login.views import login
 from cadastro.models import Cadastro_Pessoa
 
 # Create your views here.
@@ -23,7 +24,7 @@ def AtuInfo(request : HttpRequest):
     if request.method == 'POST':
         if formulario.is_valid():
             obj,corObj=formulario.save()
-            return redirect(Painel)
+            return redirect(Login_User)
     contexto={
         "form":formulario,
     }

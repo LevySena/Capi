@@ -25,7 +25,7 @@
         </div>
         <!--imagem da capivara-->
         <div class="d-flex justify-content-center align-items-center" style="width: 60%;">
-            <img src="{% static 'calcst/calc.png' %}" alt="logo">
+            <img src="{% static 'calcst/calculadora.png' %}" alt="logo">
         </div>
         <!--ícone de perfil-->
         <div style="width: 20%;">
@@ -53,7 +53,9 @@
               <div class="boxQ w-100 p-3 mb-3">
               <h4 class="w-100 p-3">Informe o preço do kWh na sua região</h4>
               {{forms.precRegion.errors}}
-              {{forms.precRegion}}
+              <div style="color: red;">
+                {{forms.precRegion}}
+              </div>
             </div>
             <div class="boxQ w-100 p-3 mb-3">
               <h4 class="w-100 p-3">Informe a quantidade de botijões de gas usados no mês</h4>
@@ -62,6 +64,9 @@
             <div class="boxQ w-100 p-3 mb-3">
               <h4 class="w-100 p-3">Selecione seu tipo de veículo pessoal mais usado</h4>
               {{forms.veiculoP}}
+              <div style="color: red;">
+                {{forms.veiculoP.errors}}
+              </div>
             </div>
               <div id="carCom" class="boxQ w-100 p-3 mb-3" style="display: none;">
               <h4 class="w-100 p-3">Selecione o tipo de combustível do seu carro</h4>
