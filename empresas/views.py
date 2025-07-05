@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest,JsonResponse
 from empresas.models import Empresas
+from empresas.forms import EmpForm
 import json
 # Create your views here.
 
@@ -52,3 +53,16 @@ def favoritar(request : HttpRequest):
         return JsonResponse({'status': 'error', 'message': 'Empresa não encontrada.'}, status=404)
     except Exception as e:
         return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
+
+@login_required(login_url='login')
+def CadEmp(request : HttpRequest):
+    formulario = EmpForm()
+    if request.method == 'POST':
+        formulario = EmpForm(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect(EmpLista)
+    contexto={
+        'forms':formulario
+    }
+    return render(request,"emp/cadEmp.html",context=contexto)
