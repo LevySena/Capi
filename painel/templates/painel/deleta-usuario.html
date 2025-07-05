@@ -29,7 +29,8 @@
         </div>
     </header>
     <main class="w-100 m-auto form-container">
-        <form>
+        <form method="post" class="Forms">
+            {% csrf_token %}
             <!--icone do usuário-->
             <div class="justify-content-center d-flex">
                 <img src="{% static 'msgst/Usuario.png' %}"  alt="perfil">

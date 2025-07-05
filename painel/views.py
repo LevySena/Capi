@@ -5,12 +5,14 @@ from django.contrib.auth.models import User
 from painel.forms import *
 from login.views import login
 from cadastro.models import Cadastro_Pessoa
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-
+@login_required(login_url='login')
 def Painel(request : HttpRequest):
     return render(request,"painel/painel-usuario.html")
 
+@login_required(login_url='login')
 def AtuInfo(request : HttpRequest):
     obj = User.objects.get(id=request.user.id)
     corObj = Cadastro_Pessoa.objects.get(user=obj)
@@ -30,6 +32,7 @@ def AtuInfo(request : HttpRequest):
     }
     return render(request,"painel/atualiza-usuario2.html",context=contexto)
 
+@login_required(login_url='login')
 def DelUser(request : HttpRequest):
     obj = User.objects.get(id=request.user.id)
     ini_data = {
