@@ -37,22 +37,22 @@
         <!--formulário do cadastro-->
         <form action="." method="post" class="Forms">
             {% csrf_token %}
-            <label class="form-label" for="nome">Nome</label>
+            <label class="form-label mt-3" for="nome">Nome</label>
             {{form.username}}
 
             <!--email-->
-            <label class="form-label" for="email">Email</label>
+            <label class="form-label mt-3" for="email">Email</label>
             {{form.email}}
 
             <!--CPF-->
-            <label class="form-label" for="cpf">CPF</label>
+            <label class="form-label mt-3" for="cpf">CPF</label>
             {{form.cpf}}
             <div style="color: red;">
             {{form.cpf.errors}}
             </div>
 
             <!--senha-->
-            <label class="form-label" for="senha">Senha</label>
+            <label class="form-label mt-3" for="senha">Senha</label>
             <div class="input-group mb-3">
                 {{form.password}}
                 <i class="input-group-text bi bi-eye-slash" id="eye"></i>
