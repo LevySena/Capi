@@ -40,8 +40,9 @@
        <div class="d-flex flex-column align-items-center">
            <a href="{% url 'cadMsg' %}"><button class="btn2">ADICIONAR 
                EMPRESA</button></a>
+               <div class="align-items-center" style="transform: scale(1.5);">
                <label for="show-favorites"><input type="checkbox" id="favoritas" class="filter-checkbox"
-                   {% if favoritas_apenas %}checked{% endif %}> Mostrar apenas favoritas</label>
+                   {% if favoritas_apenas %}checked{% endif %}> Mostrar apenas favoritas</label></div>
         </div> 
             
         <div class="list w-75">
@@ -61,7 +62,6 @@
                 {% endfor %}
             </div>
         </div>
-    </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
     <script src="{% static 'empst/fav_filter.js' %}"></script>
