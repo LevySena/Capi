@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Carbono | CAPI</title>
+
+    <!--ícones bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!-- Fonte personalizada "Lemonada" do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'calcst/calcM.css' %}">
+</head>
+<body class="d-flex flex-column align-items-center justify-content-between">
+      <header class="w-100 h-20 d-flex align-items-center justify-content-between">
+        <!--botão de voltar-->
+         <div style="width: 20%;">
+            <a href={% url 'Calp' %}>
+                <button class="botao-header">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+            </a>
+        </div>
+        <!--imagem da capivara-->
+        <div class="d-flex justify-content-center align-items-center" style="width: 60%;">
+            <img src="{% static 'calcst/calculadora.png' %}" alt="logo">
+        </div>
+        <!--ícone de perfil-->
+        <div style="width: 20%;">
+        <a href={% url 'painel' %}>
+                <img class="profile" src="{% static 'calcst/Usuario.png' %}" alt="ícone">
+            </a>
+        </div>
+    </header>
+    <div id="msg" class="square1 p-4">
+        PEGADA DE CARBONO ATUAL: {{obj.valorTotal}} Kg CO2e
+    </div>
+
+    <div id="dica" class="square2 d-flex w-75 align-items-center justify-content-center">
+        <p id="text" class="">{{msg.cont}}</p>
+    </div>
+
+    <div class="container text-center mb-4">
+        <button id="button" class="btn btn-primary btn-lg">ENTENDI</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

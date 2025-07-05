@@ -1,0 +1,116 @@
+/*configurações globais*/
+html, body{
+    height: 100%;
+}
+
+/*variáveis*/
+:root{
+    --button-primary-color: #5B999C;
+    --button-second-color: #5b8a8c;
+    --profile-color: #5B999C;
+    --square-color: #BFE7E9;
+    --h2-color: #8E5021;
+}
+
+/*configurações principais*/
+body{
+    background-color: #f8fafc;
+    font-family: 'Lemonada', cursive;
+}
+
+header{
+    background-color: #BFE7E9;
+    position: relative;
+}
+
+/*configurações secundárias*/
+.square1{
+    background-color: #9ECBCD;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+}
+
+.square2{
+    background-color: #5B999C;
+    height: 400px;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+}
+
+/*configuração do botão*/
+.botao-header{
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 4px;
+    font-size: 2.3rem;
+    cursor: pointer;
+    color: #ffffff;
+}
+.botao-header:hover{
+    opacity: 0.8;
+}
+
+/*configuração do ícone de perfil do header*/
+.profile{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--profile-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: white;
+    font-size: 26px;
+}
+
+.profile:hover{
+    transform: translateY(-50%) scale(1.05);
+}
+
+/*configuração da imagem*/
+img{
+    position: relative;
+    object-fit: contain;
+    height: 5rem;
+}
+/*tipografia*/
+h2{
+    height: 150px;
+    color: var(--h2-color);
+}
+
+/*classes do bootstrap*/
+
+.btn-primary {
+    background-color: #5b8a8c;
+    color: white;
+    border-color: var(--button-primary-color);
+    --bs-btn-hover-color: white;
+    --bs-btn-hover-bg: var(--button-primary-color);
+    --bs-btn-hover-border-color: #33241F;
+    --bs-btn-active-color: white;
+    --bs-btn-active-bg: var(--button-second-color);
+    --bs-btn-active-border-color: var(--button-second-color);
+    --bs-btn-font-size: 1.2rem;
+}
+.btn-primary:hover{
+    color: white;
+    background-color: #5B999C;
+    border-color: #33241F;
+}
+.btn-primary:focus{
+    color: white;
+    background-color: #5b8a8c;
+    border-color: #5b8a8c;
+}

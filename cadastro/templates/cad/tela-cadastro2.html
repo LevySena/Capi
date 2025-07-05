@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
+    
     <!--bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
     <!--bootstrap icons-->
@@ -18,13 +19,15 @@
     <header class="w-100 h-20 d-flex align-items-center justify-content-between">
         <!--botão de voltar-->
         <div style="width: 20%;">
-            <button class="botao">
+            <a href={% url 'login' %}>
+            <button class="botao-header">
             <i class="bi bi-chevron-left"></i>
             </button>
+            </a>
         </div>
         <!--imagem da capivara-->
         <div class="d-flex justify-content-center align-items-center" style="width: 60%;">
-            <img src="{% static 'cadst/logo.png' %}"  alt="logo">
+            <img src="{% static 'cadst/cadastro.png' %}"  alt="logo">
         </div>
         <!--div para centralizar a imagem-->
         <div style="width: 20%;"></div>
@@ -32,37 +35,42 @@
     <!--centro-->
     <main class="w-100 m-auto form-container">
         <!--formulário do cadastro-->
-        <form>
-            <!--nome-->
-            <div class="mb-3">
-                <label class="form-label" for="nome">Nome</label>
-                <input class="form-control" type="text" id="nome" placeholder="nome">    
-            </div>
+        <form action="." method="post" class="Forms">
+            {% csrf_token %}
+            <label class="form-label" for="nome">Nome</label>
+            {{form.username}}
+
             <!--email-->
-            <div class="mb-3">
-                <label class="form-label" for="email">Email</label>
-                <input class="form-control" type="email" id="email" placeholder="email">
-            </div>
+            <label class="form-label" for="email">Email</label>
+            {{form.email}}
+
             <!--CPF-->
-            <div class="mb-3">
-                <label class="form-label" for="cpf">CPF</label>
-                <input class="form-control" type="text" id="cpf" placeholder="CPF">
+            <label class="form-label" for="cpf">CPF</label>
+            {{form.cpf}}
+            <div style="color: red;">
+            {{form.cpf.errors}}
             </div>
+
             <!--senha-->
-            <div class="mb-3">
-                <label class="form-label" for="senha">Senha</label>
-                <input class="form-control" type="password" id="senha" placeholder="senha">
+            <label class="form-label" for="senha">Senha</label>
+            <div class="input-group mb-3">
+                {{form.password}}
+                <i class="input-group-text bi bi-eye-slash" id="eye"></i>
             </div>
+
             <!--termos de uso-->
-            <div class="mb-3">
-                <input class="form-check-input" type="checkbox" id="termos" name="termos" required>
-                <label class="form-check-label" for="termos">Termos de Uso</label>   
-            </div>
+            <input class="form-check-input" type="checkbox" id="termos" name="termos" required>
+            <label class="form-check-label mb-3" for="termos">Termos de Uso</label>
+
             <!--botão para registrar-->
-            <button class="btn btn-dark w-100" type="submit">Registrar</button>
+            <button class="btn btn-primary w-100" type="submit">Criar conta</button>
         </form>
     </main>
-    <!--div para centralizar a main-->
-    <div></div>
+    
+    <!--jquery-->
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <!--javascript local-->
+    <script src="{% static 'cadst/tela-cadastro2.js' %}"></script>
+
 </body>
 </html>

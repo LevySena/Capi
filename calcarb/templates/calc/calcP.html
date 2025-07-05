@@ -1,28 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     {% load static %}
+    {% url 'CalQ' as calcq %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Carbono | CAPI</title>
+    <!--ícones bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!-- Fonte personalizada "Lemonada" do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@300..700&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'calcst/index.css' %}">
+    <link rel="stylesheet" href="{% static 'calcst/calcP.css' %}">
 </head>
-<body>
-    <div class="row container-fluid" id="header">
-        <div class="col text-center">
-            <img id="img-user" src="{% static 'calcst/Usuario.png' %}" alt="Usuário" class="img-fluid rounded-circle">
-            <img id="img-logo" src="{% static 'calcst/Capimatica.png' %}" alt="Capi" class="img-fluid">
-            <p id="title">CALCULADORA</p>
+<body class="d-flex flex-column align-items-center justify-content-between">
+      <header class="w-100 h-20 d-flex align-items-center justify-content-between">
+        <!--botão de voltar-->
+         <div style="width: 20%;">
+            <a href={% url 'Home' %}>
+                <button class="botao-header">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+            </a>
         </div>
+        <!--imagem da capivara-->
+        <div class="d-flex justify-content-center align-items-center" style="width: 60%;">
+            <img src="{% static 'calcst/calculadora.png' %}" alt="logo">
+        </div>
+        <!--ícone de perfil-->
+        <div style="width: 20%;">
+        <a href={% url 'painel' %}>
+                <img class="profile" src="{% static 'calcst/Usuario.png' %}" alt="ícone">
+            </a>
+        </div>
+    </header>
+    <div id="msg" class="container square1 m-auto p-4">
+            PEGADA DE CARBONO ATUAL: {{obj.valorTotal}} Kg CO2e
     </div>
 
-    <div id="msg" class="container text-center my-5">
-        <p id="text">PEGADA DE CARBONO ATUAL: ??</p>
-    </div>
-
-    <div class="container text-center">
-        <button id="button" class="btn btn-primary btn-lg">CALCULE SUA PEGADA DE CARBONO</button>
+    <div class="container text-center m-auto">
+        <a href={% url 'CalQ' %} style="text-decoration: none;">
+            <button id="button" class="btn btn-primary btn-lg p-5">CALCULE SUA PEGADA DE CARBONO</button>
+        </a>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
