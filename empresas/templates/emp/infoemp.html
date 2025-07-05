@@ -38,15 +38,16 @@
 
     <main class="w-100 m-auto container d-flex flex-column align-items-center">
         <!--Informações da empresa-->
-        <section class="d-flex flex-column align-items-center mb-3 quadro">
-            <h3 class="mb-5">{{obj.company_name}}</h3>
+        <section class="d-flex flex-column align-items-center mb-3 quadro" style="color: white;">
+            <h1 class="mb-5">{{obj.company_name}}</h1>
             <!--descrição-->
             <p style="text-align: justify;">
-                <div>Localização: {{obj.location}}</div>
-                <div>Setor: {{obj.sector}}</div>
+                <div style="font-size: 2rem;">Localização: {{obj.location}}</div>
+                <div style="font-size: 2rem;">Setor: {{obj.sector}}</div>
             </p>
             
         </section>
+
         <!--Opção de favoritar empresa-->
         <div class="align-items-center">
             <label class="mt-3" for="favorito">
